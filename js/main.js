@@ -23,6 +23,7 @@ menuButton.addEventListener('click', function () {
 	menu.classList.toggle('header-active');
 })
 */
+
 const getElement = ( tagName, classNames, attributes ) => {
 
 	const element = document.createElement( tagName );
