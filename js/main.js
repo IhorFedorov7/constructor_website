@@ -107,11 +107,7 @@ const movieConstructor = ( selector, options ) => {
 
 };
 
-
-
-
-
-
+//объект по созданию страницы
 movieConstructor('.app', {
 	title: 'Ведьмак',
 	header: {
