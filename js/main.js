@@ -53,6 +53,7 @@ const createHeader = ({
 	const Header = getElement('header');
 	const container = getElement('div', ['container']);
 	const wrapper = getElement('div', ['header']);
+	const menuBtn = getElement('button', ['menu-button']);
 
 	if ( logo ) {
 		const Logo = getElement('img', ['logo'], {
@@ -96,8 +97,16 @@ const createHeader = ({
 		wrapper.append( socialWrapper );
 	};
 
+	if ( wrapper && menuBtn ) {
+		menuBtn.addEventListener('click', function () {
+			menuBtn.classList.toggle('menu-button-active');
+			wrapper.classList.toggle('header-active');
+		});
+	};
+
 	Header.append( container );
 	container.append( wrapper );
+	container.append( menuBtn );
 
 	return Header;
 };
@@ -198,6 +207,47 @@ const createMain = ({
 	return main;
 };
 
+const createFooter = ({ 
+	copyright, 
+	menu, 
+}) => {
+
+	const footer = getElement('footer', ['footer']);
+	const container = getElement('div', ['container']);
+	const wrapper = getElement('div', ['footer-content']);
+	const leftBlock = getElement('div', ['left']);
+	const rightBlock = getElement('div', ['right']);
+
+	if ( copyright ) {
+		const spanCopyright = getElement('span', ['copyright'], {
+			textContent: copyright,
+		});
+
+		leftBlock.append(spanCopyright);
+	};
+
+	if ( menu ) {
+		const navWrapper = getElement('nav', ['footer-menu']);
+		const allNav = menu.map( item => {
+			const navLink = getElement('a', ['footer-link'], {
+				href: item.link,
+				textContent: item.title,
+			});
+
+			return navLink;
+		});
+
+		navWrapper.append( ...allNav );
+		rightBlock.append( navWrapper );
+	}
+
+	footer.append(container);
+	container.append(wrapper);
+	wrapper.append(leftBlock, rightBlock);
+
+	return footer;
+};
+
 const movieConstructor = ( selector, options ) => {
 
 	const app = document.querySelector( selector );
@@ -220,6 +270,10 @@ const movieConstructor = ( selector, options ) => {
 
 	if ( options.main ) {
 		app.append(createMain( options ));
+	};
+
+	if ( options.footer ) {
+		app.append(createFooter( options.footer ));
 	};
 
 };
@@ -267,5 +321,22 @@ movieConstructor('.app', {
 		rating: '8',
 		description: 'Ведьмак Геральт, мутант и убийца чудовищ, на своей верной лошади по кличке Плотва путешествует по Континенту. За тугой мешочек чеканных монет этот мужчина избавит вас от всякой настырной нечисти — хоть от чудищ болотных, оборотней и даже заколдованных принцесс.',
 		trailer: 'https://www.youtube.com/watch?v=P0oJqfLzZzQ',
+	},
+	footer: {
+		copyright: '© 2020 The Witcher. All right reserved.',
+		menu: [
+			{
+				title: 'Privacy Policy',
+				link: '#',
+			},
+			{
+				title: 'Terms of Service',
+				link: '#',
+			},
+			{
+				title: 'Legal',
+				link: '#',
+			},
+		],
 	},
 });
