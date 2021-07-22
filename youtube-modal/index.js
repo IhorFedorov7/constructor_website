@@ -35,7 +35,7 @@
 			const max = Math.max(from, to);
 			const min = Math.min(from, to);
 			const step = (max - min) / count;
-			console.log(min === to)
+			
 			allAnimation.push({style, from, to, step, reverse: min === to})
 		});
 

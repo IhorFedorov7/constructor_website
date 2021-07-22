@@ -1,29 +1,3 @@
-/*
-new Swiper('.swiper-container', {
-	loop: true,
-	navigation: {
-		nextEl: '.arrow',
-	},
-	breakpoints: {
-		320: {
-			slidesPerView: 1,
-			spaceBetween: 20
-		},
-		541: {
-			slidesPerView: 2,
-			spaceBetween: 40
-		}
-	}
-});
-
-const menuButton = document.querySelector('.menu-button');
-const menu = document.querySelector('.header');
-menuButton.addEventListener('click', function () {
-	menuButton.classList.toggle('menu-button-active');
-	menu.classList.toggle('header-active');
-})
-*/
-
 const getElement = ( tagName, classNames, attributes ) => {
 
 	const element = document.createElement( tagName );
@@ -46,7 +20,7 @@ const createHeader = ({
 	header:{ 
 		logo, 
 		social, 
-		menu
+		menu,
 	} 
 }) => {
 
@@ -102,11 +76,12 @@ const createHeader = ({
 			menuBtn.classList.toggle('menu-button-active');
 			wrapper.classList.toggle('header-active');
 		});
+
+		container.append( menuBtn );
 	};
 
 	Header.append( container );
 	container.append( wrapper );
-	container.append( menuBtn );
 
 	return Header;
 };
@@ -118,6 +93,7 @@ const createMain = ({
 		rating, 
 		description, 
 		trailer, 
+		slider,
 	}
 }) => {
 
@@ -204,6 +180,60 @@ const createMain = ({
 		wrapper.append(youtubeImgLink);
 	};
 
+	if ( slider ) {
+		const sliderBlock = getElement('div', ['series']);
+		const swiperBlock = getElement('div', ['swiper-container']);
+		const swiperWrapper = getElement('div', ['swiper-wrapper']);
+		const arrow = getElement('buttom', ['arrow']);
+
+		const slides = slider.map(item => {
+
+			const swiperSlide = getElement('div', ['swiper-slide']);
+			const card = getElement('figure', ['card']);
+			const cardImage = getElement('img', ['card-img'], {
+				src: item.img,
+				alt: (`${(item.title || '')} ${(item.subtitle || '')}`).trim(),
+			});
+
+			card.append(cardImage);
+			
+			if ( item.title || item.subtitle ) {
+				const cardDescription = getElement('figcaption', ['card-description']);
+				cardDescription.innerHTML = `
+					${item.subtitle ? `<p class="card-subtitle">${item.subtitle}</p>` : ''}
+					${item.title ? `<p class="card-title">${item.title}</p>` : ''}
+				`;
+
+				card.append(cardDescription);
+			};
+			
+			swiperSlide.append(card);
+			return swiperSlide;
+		});
+
+		swiperWrapper.append(...slides);
+		swiperBlock.append(swiperWrapper);
+		sliderBlock.append(swiperBlock, arrow);
+		container.append(sliderBlock);
+
+		new Swiper(swiperBlock, {
+			loop: true,
+			navigation: {
+				nextEl: arrow,
+			},
+			breakpoints: {
+				320: {
+					slidesPerView: 1,
+					spaceBetween: 20
+				},
+				541: {
+					slidesPerView: 2,
+					spaceBetween: 40
+				}
+			}
+		});
+	};
+
 	return main;
 };
 
@@ -253,16 +283,30 @@ const movieConstructor = ( selector, options ) => {
 	const app = document.querySelector( selector );
 	app.classList.add('body-app');
 
+	app.style.color = options.fontColor || '';
+	app.style.backgroundColor = options.backgroundColor || '';
+
+	if ( options.subColor ) {
+		document.documentElement.style.setProperty('--sub-color', options.subColor);
+	};
+
 	if ( options.background ) {
 		app.style.backgroundImage = `url("${ options.background }")`;
 	};
 
 	document.title = options.title;
-	document.head.append(getElement('link', [], { 
-		href: options.header.logo,
-		rel: "shortcut icon",
-		type: "image/x-icon",
-	}));
+	if ( options.favicon ) {
+		const index = options.favicon.lastIndexOf('.');
+		const type = options.favicon.substring(index + 1);
+
+		const favicon = getElement('link', null, { 
+			rel: "icon",
+			href: options.favicon,
+			type: `image/${type === 'svg' ? 'svg-xml' : type}`,
+		});
+
+		document.head.append(favicon);
+	}
 
 	if ( options.header ) {
 		app.append(createHeader( options ));
@@ -280,8 +324,12 @@ const movieConstructor = ( selector, options ) => {
 
 //объект по созданию страницы
 movieConstructor('.app', {
+	favicon: './witcher/logo.png',
 	title: 'Ведьмак',
 	background: './witcher/background.jpg',
+	fontColor: '#ffffff',
+	backgroundColor: '#141218',
+	subColor: '#9D2929',
 	header: {
 		logo: './witcher/logo.png',
 		social: [
@@ -321,6 +369,28 @@ movieConstructor('.app', {
 		rating: '8',
 		description: 'Ведьмак Геральт, мутант и убийца чудовищ, на своей верной лошади по кличке Плотва путешествует по Континенту. За тугой мешочек чеканных монет этот мужчина избавит вас от всякой настырной нечисти — хоть от чудищ болотных, оборотней и даже заколдованных принцесс.',
 		trailer: 'https://www.youtube.com/watch?v=P0oJqfLzZzQ',
+		slider: [
+			{
+				img: './witcher/series/series-1.jpg',
+				subtitle: 'Серия №1',
+				title: 'Начало конца',
+			},
+			{
+				img: './witcher/series/series-2.jpg',
+				subtitle: 'Серия №2',
+				title: 'Четыре марки',
+			},
+			{
+				img: './witcher/series/series-3.jpg',
+				subtitle: 'Серия №3',
+				title: 'Предательская луна',
+			},
+			{
+				img: './witcher/series/series-4.jpg',
+				subtitle: 'Серия №4',
+				title: 'Банкеты, ублюдки и похороны',
+			},
+		],
 	},
 	footer: {
 		copyright: '© 2020 The Witcher. All right reserved.',

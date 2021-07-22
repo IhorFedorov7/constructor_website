@@ -14,8 +14,6 @@
 
 }
 
-
-
 #youtube-modal-container {
 	z-index: 999;
 	position: fixed;
@@ -27,10 +25,12 @@
 	justify-content: center;
 	align-items: center;
 }
+
 #youtube-modal {
 	text-align: center;
 	box-shadow: 0 0 40px #333;
 }
+
 #youtube-modal-loading {
 	position: fixed;
 	z-index: 997;
@@ -40,6 +40,7 @@
 	text-align: center;
 	left: 45%;
 }
+
 #youtube-modal-close {
 	position: fixed;
 	right: 15px;
@@ -55,6 +56,7 @@
 	-moz-transition-duration: 0.1s;
 	transition-duration: 0.1s;
 }
+
 #youtube-modal-close:hover {
 	background: #333;
 }
