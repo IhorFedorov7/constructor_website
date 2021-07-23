@@ -1,0 +1,336 @@
+<!--
+  <header>
+    <div class="container">
+      <div class="header">
+        <img src="witcher/logo.png" alt="логотип Ведьмак" class="logo">
+        <nav class="menu-list">
+          <a href="#" class="menu-link">Описание</a>
+          <a href="#" class="menu-link">Трейлер</a>
+          <a href="#" class="menu-link">Отзывы</a>
+        </nav>
+
+        <div class="social">
+          <a href="#" class="social-link"><img src="witcher/social/twitter.svg" alt="Twitter"></a>
+          <a href="#" class="social-link"><img src="witcher/social/instagram.svg" alt="instagram"></a>
+          <a href="#" class="social-link"><img src="witcher/social/facebook.svg" alt="Facebok"></a>
+        </div>
+      </div>
+      <button class="menu-button"></button>
+    </div>
+  </header>
+
+
+  <main>
+    <div class="container">
+      <div class="main-content">
+        <div class="content">
+          <span class="genre animated fadeInRight">2019,фэнтези</span>
+
+          <div class="rating animated fadeInRight">
+            <div class="rating-stars">
+              <img src="img/star.svg" alt="Рейтинг 7 из 10" class="star">
+              <img src="img/star.svg" alt="" class="star">
+              <img src="img/star.svg" alt="" class="star">
+              <img src="img/star.svg" alt="" class="star">
+              <img src="img/star.svg" alt="" class="star">
+              <img src="img/star.svg" alt="" class="star">
+              <img src="img/star.svg" alt="" class="star">
+              <img src="img/star-o.svg" alt="" class="star">
+              <img src="img/star-o.svg" alt="" class="star">
+              <img src="img/star-o.svg" alt="" class="star">
+            </div>
+            <div class="rating-number">7/10</div>
+          </div>
+          <h1 class="main-title animated fadeInRight">Ведьмак</h1>
+
+          <p class="main-description animated fadeInRight">
+            Ведьмак Геральт, мутант и убийца чудовищ, на своей верной лошади по кличке Плотва путешествует по Континенту. За тугой
+            мешочек чеканных монет этот мужчина избавит вас от всякой настырной нечисти — хоть от чудищ болотных, оборотней и даже
+            заколдованных принцесс.</p>
+
+          <a href="https://www.youtube.com/watch?v=P0oJqfLzZzQ" class="button animated fadeInRight youtube-modal">Смотреть трейлер</a>
+
+        </div>
+        <a href="https://www.youtube.com/watch?v=P0oJqfLzZzQ" class="play youtube-modal">
+          <img src="img/play.svg" alt="play" class="play-img">
+        </a>
+      </div>
+
+      <div class="series">
+        <div class="swiper-container">
+
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <figure class="card">
+                <img class="card-img" src="witcher/series/series-1.jpg" alt="Серия №1">
+                <figcaption class="card-description">
+                  <p class="card-subtitle">Серия №1</p>
+                  <p class="card-title">Начало конца</p>
+                </figcaption>
+              </figure>
+            </div>
+
+            <div class="swiper-slide">
+              <figure class="card">
+                <img class="card-img" src="witcher/series/series-2.jpg" alt="Серия №2">
+                <figcaption class="card-description">
+                  <p class="card-subtitle">Серия №2</p>
+                  <p class="card-title">Четыре марки</p>
+                </figcaption>
+              </figure>
+            </div>
+
+            <div class="swiper-slide">
+              <figure class="card">
+                <img class="card-img" src="witcher/series/series-3.jpg" alt="Серия №3">
+                <figcaption class="card-description">
+                  <p class="card-subtitle">Серия №3</p>
+                  <p class="card-title">Предательская луна</p>
+                </figcaption>
+              </figure>
+            </div>
+
+            <div class="swiper-slide">
+              <figure class="card">
+                <img class="card-img" src="witcher/series/series-4.jpg" alt="Серия №4">
+                <figcaption class="card-description">
+                  <p class="card-subtitle">Серия №4</p>
+                  <p class="card-title">Банкеты, ублюдки и похороны</p>
+                </figcaption>
+              </figure>
+            </div>
+
+          </div>
+        </div>
+        <button class="arrow"></button>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="left">
+          <span class="copyright">© 2020 The Witcher. All right reserved.</span>
+
+        </div>
+        <div class="right">
+          <nav class="footer-menu">
+            <a href="#" class="footer-link">Privacy Policy</a>
+            <a href="#" class="footer-link">Terms of Service</a>
+            <a href="#" class="footer-link">Legal</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </footer>
+  -->
+
+
+  конструктор что бы в нем поменять местами текст типа с лева на право нужно создать новый класс с стилем flex-direction: row-reverse
+
+
+
+
+  Обыекты с разными темами
+
+
+  /*
+//объект по созданию страницы Черная Вдова
+movieConstructor('.app', {
+	favicon: './BlackWidow/logo.png',
+	title: 'Чёрная Вдова',
+	background: './BlackWidow/background.jpg',
+	fontColor: '#000',
+	backgroundColor: '#fff',
+	subColor: '#9D2929',
+	header: {
+		logo: './BlackWidow/logo.png',
+		social: [
+			{
+				title: 'Twitter',
+				link: 'https://twitter.com',
+				img: './BlackWidow/social/twitter.svg',
+			},
+			{
+				title: 'Instagram',
+				link: 'https://instagram.com',
+				img: './BlackWidow/social/instagram.svg',
+			},
+			{
+				title: 'Facebook',
+				link: 'https://facebook.com',
+				img: './BlackWidow/social/facebook.svg',
+			},
+			{
+				title: 'vk',
+				link: 'https://vk.com',
+				img: './BlackWidow/social/vk.svg',
+			},
+		],
+		menu: [
+			{
+				title: 'Описание',
+				link: '#',
+			},
+			{
+				title: 'Трейлер',
+				link: '#',
+			},
+			{
+				title: 'Отзывы',
+				link: '#',
+			},
+		]
+	},
+	main: {
+		genre: '2019,фэнтези',
+		rating: '8',
+		description: 'Ведьмак Геральт, мутант и убийца чудовищ, на своей верной лошади по кличке Плотва путешествует по Континенту. За тугой мешочек чеканных монет этот мужчина избавит вас от всякой настырной нечисти — хоть от чудищ болотных, оборотней и даже заколдованных принцесс.',
+		trailer: 'https://www.youtube.com/watch?v=P0oJqfLzZzQ',
+		slider: [
+			{
+				img: './witcher/series/series-1.jpg',
+				subtitle: 'Серия №1',
+				title: 'Начало конца',
+			},
+			{
+				img: './witcher/series/series-2.jpg',
+				subtitle: 'Серия №2',
+				title: 'Четыре марки',
+			},
+			{
+				img: './witcher/series/series-3.jpg',
+				subtitle: 'Серия №3',
+				title: 'Предательская луна',
+			},
+			{
+				img: './witcher/series/series-4.jpg',
+				subtitle: 'Серия №4',
+				title: 'Банкеты, ублюдки и похороны',
+			},
+		],
+	},
+	footer: {
+		copyright: '© 2020 The Witcher. All right reserved.',
+		menu: [
+			{
+				title: 'Privacy Policy',
+				link: '#',
+			},
+			{
+				title: 'Terms of Service',
+				link: '#',
+			},
+			{
+				title: 'Legal',
+				link: '#',
+			},
+		],
+	},
+});
+*/
+
+/*
+//объект по созданию страницы Локи
+movieConstructor('.app', {
+	favicon: './loki/favicon.png',
+	title: 'Локи',
+	background: './loki/background.jpg',
+	fontColor: '#ffffff',
+	backgroundColor: '#000',
+	subColor: '#014206',
+	header: {
+		logo: './loki/logo.png',
+		social: [
+			{
+				title: 'Twitter',
+				link: 'https://twitter.com',
+				img: './witcher/social/twitter.svg',
+			},
+			{
+				title: 'Instagram',
+				link: 'https://instagram.com',
+				img: './witcher/social/instagram.svg',
+			},
+			{
+				title: 'Facebook',
+				link: 'https://facebook.com',
+				img: './witcher/social/facebook.svg',
+			},
+		],
+		menu: [
+			{
+				title: 'Описание',
+				link: '#',
+			},
+			{
+				title: 'Трейлер',
+				link: '#',
+			},
+			{
+				title: 'Отзывы',
+				link: '#',
+			},
+		]
+	},
+	main: {
+		genre: '2021, фантастика, фэнтези, боевик, приключения',
+        rating: '8',
+        description: 'Локи попадает в таинственную организацию «Управление временными изменениями» после того, как он украл Тессеракт, и путешествует во времени, меняя историю.',
+        trailer: 'https://youtu.be/YrjHcYqe31g',
+        slider: [
+			{
+				img: 'loki/series/series-1.jpg',
+				title: 'Славная миссия',
+				subtitle: 'Серия №1',
+			}, 
+			{
+				img: 'loki/series/series-2.jpg',
+				title: 'Вариант',
+				subtitle: 'Серия №2',
+			}, 
+			{
+				img: 'loki/series/series-3.jpg',
+				title: 'Ламентис',
+				subtitle: 'Серия №3',
+			}, 
+			{
+				img: 'loki/series/series-4.jpg',
+				title: 'Смежное событие',
+				subtitle: 'Серия №4',
+			},
+			{
+				img: 'loki/series/series-5.jpg',
+				title: 'Путешествие в неизвестность',
+				subtitle: 'Серия №5',
+			},
+			{
+				img: 'loki/series/series-6.jpg',
+				title: 'На все времена. Всегда',
+				subtitle: 'Серия №6',
+			},
+		],
+	},
+	footer: {
+		copyright: '© 2020 The Witcher. All right reserved.',
+		menu: [
+			{
+				title: 'Privacy Policy',
+				link: '#',
+			},
+			{
+				title: 'Terms of Service',
+				link: '#',
+			},
+			{
+				title: 'Legal',
+				link: '#',
+			},
+		],
+	},
+});
+*/

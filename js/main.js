@@ -1,5 +1,5 @@
+//Создание элементов
 const getElement = ( tagName, classNames, attributes ) => {
-
 	const element = document.createElement( tagName );
 
 	if ( classNames ) {
@@ -15,6 +15,7 @@ const getElement = ( tagName, classNames, attributes ) => {
 	return element;
 };
 
+//Создание шапки
 const createHeader = ({ 
 	title, 
 	header:{ 
@@ -86,6 +87,7 @@ const createHeader = ({
 	return Header;
 };
 
+//Создание контента
 const createMain = ({ 
 	title, 
 	main: { 
@@ -237,6 +239,7 @@ const createMain = ({
 	return main;
 };
 
+//Создание подвала
 const createFooter = ({ 
 	copyright, 
 	menu, 
@@ -278,6 +281,7 @@ const createFooter = ({
 	return footer;
 };
 
+//Распределение параметров
 const movieConstructor = ( selector, options ) => {
 
 	const app = document.querySelector( selector );
@@ -389,6 +393,26 @@ movieConstructor('.app', {
 				img: './witcher/series/series-4.jpg',
 				subtitle: 'Серия №4',
 				title: 'Банкеты, ублюдки и похороны',
+			},
+			{
+				img: './witcher/series/series-5.jpg',
+				subtitle: 'Серия №5',
+				title: 'Желания из бутылки',
+			},
+			{
+				img: './witcher/series/series-6.jpg',
+				subtitle: 'Серия №6',
+				title: 'Редкие виды',
+			},
+			{
+				img: './witcher/series/series-7.jpg',
+				subtitle: 'Серия №7',
+				title: 'Перед падением',
+			},
+			{
+				img: './witcher/series/series-8.jpg',
+				subtitle: 'Серия №8',
+				title: 'Нечто большее',
 			},
 		],
 	},
