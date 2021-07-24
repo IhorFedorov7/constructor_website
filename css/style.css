@@ -97,6 +97,11 @@ img {
     animation-delay: 0.5s;
 }
 
+.main-title_img {
+    width: 45%;
+    height: 100%;
+}
+
 .main-description {
     max-width: 458px;
     font-size: 14px;
